@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.siemens.doitfirst.YesOrNoActivity">
+
+    <RelativeLayout
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="34dp"
+            android:text="Put your question below"
+            tools:layout_editor_absoluteX="127dp"
+            tools:layout_editor_absoluteY="234dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/yesNoEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="25dp"
+            android:ems="10"
+            android:hint="what is your question ?"
+            android:inputType="textPersonName"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            tools:ignore="HardcodedText,RtlHardcoded" />
+
+        <Button
+            android:id="@+id/generateYesNoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/yesNoEditText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="68dp"
+            android:onClick="generateAnswer"
+            android:text="Calculating"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/answerYesNoTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/generateYesNoButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="127dp"
+            android:textSize="45sp"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/askAgainButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/generateYesNoButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="17dp"
+            android:enabled="false"
+            android:onClick="askAgain"
+            android:text="ask again"
+            tools:ignore="HardcodedText" />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
