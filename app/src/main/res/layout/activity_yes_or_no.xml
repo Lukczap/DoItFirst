@@ -34,7 +34,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="25dp"
             android:ems="10"
-            android:hint="what is your question ?"
+            android:hint="your question"
             android:inputType="textPersonName"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
