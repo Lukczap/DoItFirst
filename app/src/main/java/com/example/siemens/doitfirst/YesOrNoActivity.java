@@ -26,20 +26,23 @@ public class YesOrNoActivity extends AppCompatActivity {
 
         answerYesNoTextView.setText(s);
 
+            yesNoEditText.setText("");
 
 
-        generateYeNoButton.setEnabled(false);
+
+        //generateYeNoButton.setEnabled(false);
+
+            if(yesNoEditText.getText().toString().trim().isEmpty()){
+                generateYeNoButton.setEnabled(false);
+            } else {
+                generateYeNoButton.setEnabled(true);
+            }
 
 
         askAgainButton.setEnabled(true);
 
 
 
-           /* if(yesNoEditText.getText().toString().length()==0){
-                generateYeNoButton.setEnabled(false);
-            } else {
-                generateYeNoButton.setEnabled(true);
-            }*/
 
 
 
