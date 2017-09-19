@@ -2,6 +2,8 @@ package com.example.siemens.doitfirst;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,7 +12,7 @@ import java.util.Random;
 
 public class YesOrNoActivity extends AppCompatActivity {
 
-    Button generateYeNoButton;
+    Button generateYesNoButton;
     Button askAgainButton;
     TextView answerYesNoTextView;
     EditText yesNoEditText;
@@ -28,15 +30,34 @@ public class YesOrNoActivity extends AppCompatActivity {
 
             yesNoEditText.setText("");
 
+            generateYesNoButton.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                    if(yesNoEditText.toString().trim().length()==0){
+                        generateYesNoButton.setEnabled(false);
+                    } else {
+                        generateYesNoButton.setEnabled(true);
+                    }
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+
+                }
+            });
+
 
 
         //generateYeNoButton.setEnabled(false);
 
-            if(yesNoEditText.getText().toString().trim().isEmpty()){
-                generateYeNoButton.setEnabled(false);
-            } else {
-                generateYeNoButton.setEnabled(true);
-            }
+
 
 
         askAgainButton.setEnabled(true);
@@ -53,7 +74,7 @@ public class YesOrNoActivity extends AppCompatActivity {
         answerYesNoTextView.setText("");
         yesNoEditText.setText("");
 
-        generateYeNoButton.setEnabled(true);
+        generateYesNoButton.setEnabled(true);
         askAgainButton.setEnabled(false);
 
     }
@@ -67,7 +88,7 @@ public class YesOrNoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_yes_or_no);
 
-        generateYeNoButton = (Button) findViewById(R.id.generateYesNoButton);
+        generateYesNoButton = (Button) findViewById(R.id.generateYesNoButton);
         answerYesNoTextView = (TextView) findViewById(R.id.answerYesNoTextView);
         askAgainButton = (Button) findViewById(R.id.askAgainButton);
         yesNoEditText = (EditText) findViewById(R.id.yesNoEditText);
