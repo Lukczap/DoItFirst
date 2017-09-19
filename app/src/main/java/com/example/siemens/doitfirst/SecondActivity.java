@@ -8,15 +8,28 @@ import android.widget.Button;
 
 public class SecondActivity extends AppCompatActivity {
 
-    Button yesOrNoActivityButton;
+    Button yesOrNoButton;
+    Button toDoListButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        yesOrNoActivityButton = (Button) findViewById(R.id.yesOrNoActivityButton);
-        yesOrNoActivityButton.setOnClickListener(new View.OnClickListener() {
+
+        toDoListButton = (Button) findViewById(R.id.toDoListButton);
+        toDoListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent PriorityList = new Intent(SecondActivity.this, PriorityList.class);
+
+                startActivity(PriorityList);
+            }
+        });
+
+        yesOrNoButton = (Button) findViewById(R.id.yesOrNoButton);
+        yesOrNoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

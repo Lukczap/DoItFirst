@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SecondActivity" />
-        <activity android:name=".YesOrNoActivity"></activity>
+        <activity android:name=".YesOrNoActivity" />
+        <activity android:name=".PriorityList"></activity>
     </application>
 
 </manifest>
