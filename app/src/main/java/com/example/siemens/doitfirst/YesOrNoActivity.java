@@ -28,44 +28,9 @@ public class YesOrNoActivity extends AppCompatActivity {
 
         answerYesNoTextView.setText(s);
 
-            //yesNoEditText.setText("");
-
-            yesNoEditText.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-                }
-
-                @Override
-                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-                    if(yesNoEditText.getText().toString().trim().isEmpty()){
-                        generateYesNoButton.setEnabled(false);
-                    } else {
-                        generateYesNoButton.setEnabled(true);
-                    }
-
-                }
-
-                @Override
-                public void afterTextChanged(Editable editable) {
-
-                }
-            });
-
-
-
-        //generateYeNoButton.setEnabled(false);
-
-
-
+        generateYesNoButton.setEnabled(false);
 
         askAgainButton.setEnabled(true);
-
-
-
-
-
 
     }
 
@@ -74,14 +39,9 @@ public class YesOrNoActivity extends AppCompatActivity {
         answerYesNoTextView.setText("");
         yesNoEditText.setText("");
 
-        generateYesNoButton.setEnabled(true);
         askAgainButton.setEnabled(false);
 
     }
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +52,35 @@ public class YesOrNoActivity extends AppCompatActivity {
         answerYesNoTextView = (TextView) findViewById(R.id.answerYesNoTextView);
         askAgainButton = (Button) findViewById(R.id.askAgainButton);
         yesNoEditText = (EditText) findViewById(R.id.yesNoEditText);
+
+        generateYesNoButton.setEnabled(false);
+
+
+
+        yesNoEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
+
+                generateYesNoButton.setEnabled(true);
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable yesNoEditText) {
+
+                if(yesNoEditText.length() == 0) {
+                    generateYesNoButton.setEnabled(false);
+                } else {
+                    generateYesNoButton.setEnabled(true);
+                }
+
+            }
+        });
 
 
 
