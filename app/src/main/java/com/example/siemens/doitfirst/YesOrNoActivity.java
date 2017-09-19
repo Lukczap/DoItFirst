@@ -28,9 +28,9 @@ public class YesOrNoActivity extends AppCompatActivity {
 
         answerYesNoTextView.setText(s);
 
-            yesNoEditText.setText("");
+            //yesNoEditText.setText("");
 
-            generateYesNoButton.addTextChangedListener(new TextWatcher() {
+            yesNoEditText.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -39,7 +39,7 @@ public class YesOrNoActivity extends AppCompatActivity {
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-                    if(yesNoEditText.toString().trim().length()==0){
+                    if(yesNoEditText.getText().toString().trim().isEmpty()){
                         generateYesNoButton.setEnabled(false);
                     } else {
                         generateYesNoButton.setEnabled(true);
