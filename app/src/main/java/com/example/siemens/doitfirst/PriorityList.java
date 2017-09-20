@@ -5,24 +5,51 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.ListView;
+import java.util.ArrayList;
 
 public class PriorityList extends AppCompatActivity {
 
 
     EditText itemEditText;
     Button addItemButton;
-    TextView yourListTextView;
-
-    public void addItemToList(View view){
-
-        String i = itemEditText.getText().toString();
-
-        yourListTextView.setText(i);
+    Button removeItemButton;
+    ListView yourListView;
+    ArrayList<String> arrayList;
+    ArrayAdapter<String> arrayAdapter;
 
 
+
+    public void addItemToList(){
+
+        addItemButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String item = itemEditText.getText().toString();
+                arrayList.add(item);
+                arrayAdapter.notifyDataSetChanged();
+                itemEditText.setText("");
+            }
+        });
+    }
+
+    public void removeItemFromList(){
+
+        yourListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position , long id) {
+
+                arrayAdapter.remove(arrayAdapter.getItem(position));
+                arrayAdapter.notifyDataSetChanged();
+
+
+
+            }
+        });
 
     }
 
@@ -33,7 +60,21 @@ public class PriorityList extends AppCompatActivity {
 
         itemEditText = (EditText) findViewById(R.id.itemEditText);
         addItemButton = (Button) findViewById(R.id.addItemButton);
-        yourListTextView = (TextView) findViewById(R.id.yourListTextView);
+        removeItemButton = (Button) findViewById(R.id.removeItemButton);
+        yourListView = (ListView) findViewById(R.id.yourListView);
+
+        arrayList = new ArrayList();
+
+        arrayAdapter = new ArrayAdapter(PriorityList.this, android.R.layout.simple_list_item_multiple_choice, arrayList);
+
+        yourListView.setAdapter(arrayAdapter);
+
+        addItemToList();
+
+        removeItemFromList();
+
+
+
 
         itemEditText.addTextChangedListener(new TextWatcher() {
             @Override

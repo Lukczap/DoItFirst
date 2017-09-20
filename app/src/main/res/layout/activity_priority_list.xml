@@ -40,16 +40,24 @@
             android:text="add item"
             tools:ignore="HardcodedText,RtlHardcoded" />
 
-        <TextView
-            android:id="@+id/yourListTextView"
+        <ListView
+            android:id="@+id/yourListView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="65dp"
+            android:layout_below="@+id/addItemButton"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:id="@+id/removeItemButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/addItemButton"
-            android:layout_alignStart="@+id/addItemButton"
             android:layout_below="@+id/addItemButton"
-            android:layout_marginTop="19dp"
-            android:text="TextView"
-            tools:ignore="HardcodedText" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="12dp"
+            android:onClick="removeItemFromList"
+            android:text="remove item" />
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
