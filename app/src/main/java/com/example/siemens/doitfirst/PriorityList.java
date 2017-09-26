@@ -4,20 +4,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.SparseBooleanArray;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class PriorityList extends AppCompatActivity {
 
 
     EditText itemEditText;
     Button addItemButton;
-    Button removeItemButton;
     ListView yourListView;
     ArrayList<String> arrayList;
     ArrayAdapter<String> arrayAdapter;
@@ -37,25 +37,35 @@ public class PriorityList extends AppCompatActivity {
         });
     }
 
+
     public void removeItemFromList(){
 
-        View.OnClickListener listenerDel = new View.OnClickListener() {
+        yourListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
-                SparseBooleanArray checkedItemPosition = yourListView.getCheckedItemPositions();
-                int itemCount = yourListView.getCount();
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
 
-                for(int i=itemCount-1; i >= 0; i--){
-                    if(checkedItemPosition.get(i)){
-                        arrayAdapter.remove(arrayList.get(i));
-                    }
-                }
-                checkedItemPosition.clear();
-                arrayAdapter.notifyDataSetChanged();
+                arrayList.remove(position);
+
+                yourListView.invalidateViews();
+
+                //arrayAdapter.notifyDataSetChanged();
+
             }
-        };
 
-        removeItemButton.setOnClickListener(listenerDel);
+        });
+
+    }
+
+
+    public void generateList(){
+
+        yourListView.getCheckedItemPosition();
+
+        Random random = new Random();
+
+
+
+
 
     }
 
@@ -66,12 +76,11 @@ public class PriorityList extends AppCompatActivity {
 
         itemEditText = (EditText) findViewById(R.id.itemEditText);
         addItemButton = (Button) findViewById(R.id.addItemButton);
-        removeItemButton = (Button) findViewById(R.id.removeItemButton);
         yourListView = (ListView) findViewById(R.id.yourListView);
 
         arrayList = new ArrayList();
 
-        arrayAdapter = new ArrayAdapter(PriorityList.this, android.R.layout.simple_list_item_multiple_choice, arrayList);
+        arrayAdapter = new ArrayAdapter(PriorityList.this, android.R.layout.simple_list_item_1, arrayList);
 
         yourListView.setAdapter(arrayAdapter);
 
@@ -79,26 +88,32 @@ public class PriorityList extends AppCompatActivity {
 
         removeItemFromList();
 
-
-
-
-
-
+        addItemButton.setEnabled(false);
 
 
         itemEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
 
+
+
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
 
+                addItemButton.setEnabled(true);
+
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
+
+                if(itemEditText.length() == 0) {
+                    addItemButton.setEnabled(false);
+                } else {
+                    addItemButton.setEnabled(true);
+                }
 
             }
         });
