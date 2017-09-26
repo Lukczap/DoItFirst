@@ -4,8 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.SparseBooleanArray;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,17 +39,23 @@ public class PriorityList extends AppCompatActivity {
 
     public void removeItemFromList(){
 
-        yourListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        View.OnClickListener listenerDel = new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position , long id) {
+            public void onClick(View view) {
+                SparseBooleanArray checkedItemPosition = yourListView.getCheckedItemPositions();
+                int itemCount = yourListView.getCount();
 
-                arrayAdapter.remove(arrayAdapter.getItem(position));
+                for(int i=itemCount-1; i >= 0; i--){
+                    if(checkedItemPosition.get(i)){
+                        arrayAdapter.remove(arrayList.get(i));
+                    }
+                }
+                checkedItemPosition.clear();
                 arrayAdapter.notifyDataSetChanged();
-
-
-
             }
-        });
+        };
+
+        removeItemButton.setOnClickListener(listenerDel);
 
     }
 
@@ -72,6 +78,10 @@ public class PriorityList extends AppCompatActivity {
         addItemToList();
 
         removeItemFromList();
+
+
+
+
 
 
 
