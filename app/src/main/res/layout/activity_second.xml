@@ -30,7 +30,7 @@
             android:layout_below="@+id/imageView2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="51dp"
-            android:text="to do list" />
+            android:text="@string/to_do_list" />
 
         <Button
             android:id="@+id/yesOrNoButton"
@@ -39,7 +39,7 @@
             android:layout_alignStart="@+id/toDoListButton"
             android:layout_below="@+id/toDoListButton"
             android:layout_marginTop="36dp"
-            android:text="Yes or No" />
+            android:text="@string/Yes_or_No" />
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

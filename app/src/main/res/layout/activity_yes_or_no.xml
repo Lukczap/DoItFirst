@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="34dp"
-            android:text="Put your question below"
+            android:text="@string/Put_your_question_below"
             tools:layout_editor_absoluteX="127dp"
             tools:layout_editor_absoluteY="234dp"
             android:layout_alignParentTop="true"
@@ -34,7 +34,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="25dp"
             android:ems="10"
-            android:hint="your question"
+            android:hint="@string/Your_question"
             android:inputType="textPersonName"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
@@ -48,7 +48,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="68dp"
             android:onClick="generateAnswer"
-            android:text="Calculating"
+            android:text="@string/Calculating"
             tools:ignore="HardcodedText" />
 
         <TextView
@@ -70,7 +70,7 @@
             android:layout_marginTop="17dp"
             android:enabled="false"
             android:onClick="askAgain"
-            android:text="ask again"
+            android:text="@string/Ask_again"
             tools:ignore="HardcodedText" />
 
     </RelativeLayout>

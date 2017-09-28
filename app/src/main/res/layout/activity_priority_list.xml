@@ -22,7 +22,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="16dp"
             android:ems="10"
-            android:hint="add item, for remove click on list"
+            android:hint="@string/Add_item_for_remove_click_on_list"
             android:inputType="textPersonName"
             tools:ignore="HardcodedText,RtlHardcoded"
             tools:layout_editor_absoluteX="70dp"
@@ -35,7 +35,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="13dp"
             android:onClick="addItemToList"
-            android:text="add item"
+            android:text="@string/Add_item"
             tools:ignore="HardcodedText,RtlHardcoded"
             android:layout_below="@+id/itemEditText"
             android:layout_centerHorizontal="true" />
@@ -58,7 +58,7 @@
             android:layout_marginBottom="60dp"
             android:layout_marginLeft="20dp"
             android:onClick="generateList"
-            android:text="Generate List" />
+            android:text="@string/Generate_list" />
 
         <Button
             android:id="@+id/newListButton"
@@ -69,7 +69,7 @@
             android:layout_marginBottom="10dp"
             android:layout_alignEnd="@id/generateListButton"
             android:onClick="newList"
-            android:text="New List" />
+            android:text="@string/New_List" />
 
     </RelativeLayout>
 
