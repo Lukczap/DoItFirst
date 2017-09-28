@@ -22,7 +22,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="16dp"
             android:ems="10"
-            android:hint="add item of your list"
+            android:hint="add item, for remove click on list"
             android:inputType="textPersonName"
             tools:ignore="HardcodedText,RtlHardcoded"
             tools:layout_editor_absoluteX="70dp"

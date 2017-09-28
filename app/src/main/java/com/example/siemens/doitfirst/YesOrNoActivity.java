@@ -17,10 +17,9 @@ public class YesOrNoActivity extends AppCompatActivity {
     TextView answerYesNoTextView;
     EditText yesNoEditText;
 
-
         public void generateAnswer(View view) {
 
-                String[] sList = {"Yes", "No"};
+            String[] sList = {"Yes", "No"};
 
         Random rand = new Random();
 
@@ -54,8 +53,6 @@ public class YesOrNoActivity extends AppCompatActivity {
         yesNoEditText = (EditText) findViewById(R.id.yesNoEditText);
 
         generateYesNoButton.setEnabled(false);
-
-
 
         yesNoEditText.addTextChangedListener(new TextWatcher() {
             @Override

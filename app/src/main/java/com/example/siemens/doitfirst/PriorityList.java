@@ -11,18 +11,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import java.util.ArrayList;
-import java.util.Random;
+import java.util.Collections;
 
 public class PriorityList extends AppCompatActivity {
 
-
     EditText itemEditText;
     Button addItemButton;
+    Button generateListButton;
     ListView yourListView;
     ArrayList<String> arrayList;
     ArrayAdapter<String> arrayAdapter;
-
-
 
     public void addItemToList(){
 
@@ -37,7 +35,6 @@ public class PriorityList extends AppCompatActivity {
         });
     }
 
-
     public void removeItemFromList(){
 
         yourListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -48,24 +45,30 @@ public class PriorityList extends AppCompatActivity {
 
                 yourListView.invalidateViews();
 
-                //arrayAdapter.notifyDataSetChanged();
-
             }
-
         });
-
     }
-
 
     public void generateList(){
 
-        yourListView.getCheckedItemPosition();
+        generateListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        Random random = new Random();
+                Collections.shuffle(arrayList);
 
+                if (arrayList == arrayList){
 
+                    Collections.shuffle(arrayList);
 
+                }
 
+                arrayAdapter.notifyDataSetChanged();
+
+                generateListButton.setEnabled(false);
+
+            }
+        });
 
     }
 
@@ -76,6 +79,7 @@ public class PriorityList extends AppCompatActivity {
 
         itemEditText = (EditText) findViewById(R.id.itemEditText);
         addItemButton = (Button) findViewById(R.id.addItemButton);
+        generateListButton = (Button) findViewById(R.id.generateListButton);
         yourListView = (ListView) findViewById(R.id.yourListView);
 
         arrayList = new ArrayList();
@@ -90,11 +94,14 @@ public class PriorityList extends AppCompatActivity {
 
         addItemButton.setEnabled(false);
 
+        generateList();
+
+
+
 
         itemEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
-
 
 
             }
@@ -114,7 +121,6 @@ public class PriorityList extends AppCompatActivity {
                 } else {
                     addItemButton.setEnabled(true);
                 }
-
             }
         });
     }
