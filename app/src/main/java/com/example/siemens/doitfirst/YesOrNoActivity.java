@@ -31,6 +31,8 @@ public class YesOrNoActivity extends AppCompatActivity {
 
         askAgainButton.setEnabled(true);
 
+        yesNoEditText.setEnabled(false);
+
     }
 
     public void askAgain(View view) {

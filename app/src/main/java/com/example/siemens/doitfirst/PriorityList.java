@@ -1,5 +1,6 @@
 package com.example.siemens.doitfirst;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -18,6 +19,7 @@ public class PriorityList extends AppCompatActivity {
     EditText itemEditText;
     Button addItemButton;
     Button generateListButton;
+    Button newListButton;
     ListView yourListView;
     ArrayList<String> arrayList;
     ArrayAdapter<String> arrayAdapter;
@@ -55,20 +57,33 @@ public class PriorityList extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Collections.shuffle(arrayList);
+                ArrayList kopia = (ArrayList) arrayList.clone();
 
-                if (arrayList == arrayList){
-
+                do {
                     Collections.shuffle(arrayList);
-
-                }
+                } while (kopia.equals(arrayList));
 
                 arrayAdapter.notifyDataSetChanged();
 
                 generateListButton.setEnabled(false);
-
+                itemEditText.setEnabled(false);
+                yourListView.setEnabled(false);
             }
         });
+    }
+
+    public void newList(){
+
+        newListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent PriorityList = new Intent(PriorityList.this, PriorityList.class);
+
+                startActivity(PriorityList);
+            }
+        });
+
 
     }
 
@@ -80,6 +95,7 @@ public class PriorityList extends AppCompatActivity {
         itemEditText = (EditText) findViewById(R.id.itemEditText);
         addItemButton = (Button) findViewById(R.id.addItemButton);
         generateListButton = (Button) findViewById(R.id.generateListButton);
+        newListButton = (Button) findViewById(R.id.newListButton);
         yourListView = (ListView) findViewById(R.id.yourListView);
 
         arrayList = new ArrayList();
@@ -95,6 +111,8 @@ public class PriorityList extends AppCompatActivity {
         addItemButton.setEnabled(false);
 
         generateList();
+
+        newList();
 
 
 

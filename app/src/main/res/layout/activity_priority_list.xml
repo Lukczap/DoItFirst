@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/addItemButton"
-            android:layout_marginBottom="70dp"
+            android:layout_marginBottom="120dp"
             android:layout_marginTop="15dp"
             android:visibility="visible" />
 
@@ -53,12 +53,23 @@
             android:id="@+id/generateListButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/addItemButton"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="11dp"
+            android:layout_marginBottom="60dp"
             android:layout_marginLeft="20dp"
             android:onClick="generateList"
             android:text="Generate List" />
+
+        <Button
+            android:id="@+id/newListButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/generateListButton"
+            android:layout_marginBottom="10dp"
+            android:layout_alignEnd="@id/generateListButton"
+            android:onClick="newList"
+            android:text="New List" />
 
     </RelativeLayout>
 
