@@ -32,13 +32,13 @@
             android:id="@+id/addItemButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/itemEditText"
+            android:layout_centerHorizontal="true"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="13dp"
             android:onClick="addItemToList"
             android:text="@string/Add_item"
-            tools:ignore="HardcodedText,RtlHardcoded"
-            android:layout_below="@+id/itemEditText"
-            android:layout_centerHorizontal="true" />
+            tools:ignore="HardcodedText,RtlHardcoded" />
 
         <ListView
             android:id="@+id/yourListView"
@@ -64,10 +64,10 @@
             android:id="@+id/newListButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/generateListButton"
             android:layout_alignParentBottom="true"
             android:layout_alignStart="@+id/generateListButton"
             android:layout_marginBottom="10dp"
-            android:layout_alignEnd="@id/generateListButton"
             android:onClick="newList"
             android:text="@string/New_List" />
 
